@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+
+    /* Light (default) mode */
+    --background: 1 0 0;
+    --foreground: 0.2 0.025 255;
+    --card: 1 0 0;
+    --card-foreground: 0.2 0.025 255;
+    --popover: 1 0 0;
+    --popover-foreground: 0.2 0.025 255;
+
+    /* Primary = Gold */
+    --primary: 0.72 0.13 72;
+    --primary-foreground: 0.22 0.06 250;
+
+    /* Secondary = Light gray */
+    --secondary: 0.96 0.005 250;
+    --secondary-foreground: 0.22 0.06 250;
+
+    --muted: 0.96 0.005 250;
+    --muted-foreground: 0.52 0.02 250;
+
+    --accent: 0.72 0.13 72;
+    --accent-foreground: 0.22 0.06 250;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.92 0.005 255;
+    --input: 0.92 0.005 255;
+    --ring: 0.72 0.13 72;
+
+    /* Navy custom */
+    --navy: 0.22 0.06 250;
+    --navy-light: 0.28 0.07 248;
+    --gold: 0.72 0.13 72;
+    --gold-dark: 0.6 0.11 70;
+
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.985 0 0;
+    --sidebar-foreground: 0.145 0 0;
+    --sidebar-primary: 0.205 0 0;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.97 0 0;
+    --sidebar-accent-foreground: 0.205 0 0;
+    --sidebar-border: 0.922 0 0;
+    --sidebar-ring: 0.708 0 0;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+}
+
+@layer components {
+  .btn-gold {
+    @apply bg-gold text-navy font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gold-dark transition-all duration-200;
+  }
+  .btn-outline-white {
+    @apply border-2 border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white hover:text-navy transition-all duration-200;
+  }
+  .section-eyebrow {
+    @apply text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2;
+  }
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-1;
+  }
+}
