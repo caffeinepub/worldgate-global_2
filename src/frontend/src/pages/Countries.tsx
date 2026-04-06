@@ -5,7 +5,8 @@ import { useEffect } from "react";
 
 const countries = [
   {
-    flag: "🇨🇦",
+    attraction: "/assets/generated/landmark-canada.dim_600x400.jpg",
+    attractionName: "CN Tower, Toronto",
     name: "Canada",
     visaTypes: [
       "Express Entry PR",
@@ -17,7 +18,8 @@ const countries = [
     desc: "Canada is one of the top destinations for Indian immigrants, offering multiple pathways to permanent residency through the Express Entry system and Provincial Nominee Programs.",
   },
   {
-    flag: "🇬🇧",
+    attraction: "/assets/generated/landmark-uk.dim_600x400.jpg",
+    attractionName: "Big Ben, London",
     name: "United Kingdom",
     visaTypes: [
       "Skilled Worker Visa",
@@ -28,7 +30,8 @@ const countries = [
     desc: "The UK's Skilled Worker visa allows qualified professionals from India to live and work in Britain. Points-based system with clear requirements and a path to settlement.",
   },
   {
-    flag: "🇮🇪",
+    attraction: "/assets/generated/landmark-ireland.dim_600x400.jpg",
+    attractionName: "Cliffs of Moher, Ireland",
     name: "Ireland",
     visaTypes: [
       "Critical Skills Work Permit",
@@ -38,7 +41,8 @@ const countries = [
     desc: "Ireland is a growing destination for Indian IT professionals and graduates. The Critical Skills Work Permit offers a fast-track to residency for in-demand roles.",
   },
   {
-    flag: "🇪🇺",
+    attraction: "/assets/generated/landmark-europe.dim_600x400.jpg",
+    attractionName: "Eiffel Tower, Paris",
     name: "Europe / Schengen",
     visaTypes: [
       "Schengen Tourist Visa",
@@ -49,13 +53,15 @@ const countries = [
     desc: "Europe offers multiple immigration pathways including Germany's new Opportunity Card (Chancenkarte), skilled worker permits, and the Schengen tourist visa covering 26 countries.",
   },
   {
-    flag: "🇺🇸",
+    attraction: "/assets/generated/landmark-usa.dim_600x400.jpg",
+    attractionName: "Statue of Liberty, New York",
     name: "United States",
     visaTypes: ["B1/B2 Visitor Visa", "F1 Student Visa", "H1B Work Visa"],
     desc: "The USA B1/B2 visitor visa is one of the most applied-for visas from India. Our consultants help you prepare a strong application with proper documentation.",
   },
   {
-    flag: "🇦🇺",
+    attraction: "/assets/generated/landmark-australia.dim_600x400.jpg",
+    attractionName: "Sydney Opera House",
     name: "Australia",
     visaTypes: [
       "Skilled Independent (189)",
@@ -66,7 +72,8 @@ const countries = [
     desc: "Australia welcomes skilled migrants through its points-tested system. High demand for healthcare, engineering, and IT professionals from India.",
   },
   {
-    flag: "🇦🇪",
+    attraction: "/assets/generated/landmark-uae.dim_600x400.jpg",
+    attractionName: "Burj Khalifa, Dubai",
     name: "UAE (Dubai)",
     visaTypes: [
       "Work Visa (Employment)",
@@ -76,25 +83,29 @@ const countries = [
     desc: "Dubai remains the top Gulf destination for Indian workers. Wide range of sectors from construction to finance, IT, healthcare, and hospitality.",
   },
   {
-    flag: "🇸🇦",
+    attraction: "/assets/generated/landmark-saudi.dim_600x400.jpg",
+    attractionName: "Masjid al-Haram, Mecca",
     name: "Saudi Arabia",
     visaTypes: ["Iqama Work Visa", "Hajj Visa", "Umrah Visa", "Tourist Visa"],
     desc: "Saudi Arabia's Vision 2030 is creating thousands of new job opportunities. We process all Saudi work visa categories including Iqama for long-term stays.",
   },
   {
-    flag: "🇶🇦",
+    attraction: "/assets/generated/landmark-qatar.dim_600x400.jpg",
+    attractionName: "Museum of Islamic Art, Doha",
     name: "Qatar",
     visaTypes: ["Work Visa", "Tourist Visa", "Residence Permit"],
     desc: "Qatar has a growing economy with demand for skilled Indian workers in construction, energy, IT, and hospitality sectors. We facilitate all Qatar work visas.",
   },
   {
-    flag: "🇴🇲",
+    attraction: "/assets/generated/landmark-oman.dim_600x400.jpg",
+    attractionName: "Sultan Qaboos Grand Mosque, Muscat",
     name: "Oman",
     visaTypes: ["Work Visa", "Tourist Visa", "eVisa"],
     desc: "Oman offers employment opportunities in oil & gas, engineering, healthcare, and hospitality. We provide end-to-end support for Oman work visas.",
   },
   {
-    flag: "🇰🇼",
+    attraction: "/assets/generated/landmark-kuwait.dim_600x400.jpg",
+    attractionName: "Kuwait Towers, Kuwait City",
     name: "Kuwait",
     visaTypes: ["Work Visa", "Visitor Visa"],
     desc: "Kuwait has significant demand for Indian professionals especially in construction, engineering, and medical sectors. We handle all Kuwait visa categories.",
@@ -139,35 +150,46 @@ export default function Countries() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: (i % 2) * 0.1 }}
-                className="bg-white rounded-xl p-6 shadow-card border border-border card-hover"
+                className="bg-white rounded-xl overflow-hidden shadow-card border border-border card-hover"
                 data-ocid={`countries.item.${i + 1}`}
               >
-                <div className="flex items-start gap-4">
-                  <span className="text-5xl">{c.flag}</span>
-                  <div className="flex-1">
-                    <h2 className="text-xl font-bold text-navy mb-2">
-                      {c.name}
-                    </h2>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-3">
-                      {c.desc}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {c.visaTypes.map((v) => (
-                        <span
-                          key={v}
-                          className="bg-gold/10 text-navy text-xs font-medium px-3 py-1 rounded-full border border-gold/20"
-                        >
-                          {v}
-                        </span>
-                      ))}
-                    </div>
-                    <Link
-                      to="/contact"
-                      className="text-gold text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all"
-                    >
-                      Get Consultation <ChevronRight className="w-4 h-4" />
-                    </Link>
+                {/* Tourist Attraction Image */}
+                <div className="relative h-48 overflow-hidden bg-navy">
+                  <img
+                    src={c.attraction}
+                    alt={c.attractionName}
+                    className="w-full h-full object-cover object-center"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
+                  <div className="absolute bottom-3 left-3">
+                    <span className="text-white/90 text-xs font-medium bg-black/40 px-2 py-1 rounded-full backdrop-blur-sm">
+                      {c.attractionName}
+                    </span>
                   </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-5">
+                  <h2 className="text-xl font-bold text-navy mb-2">{c.name}</h2>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-3">
+                    {c.desc}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {c.visaTypes.map((v) => (
+                      <span
+                        key={v}
+                        className="bg-gold/10 text-navy text-xs font-medium px-3 py-1 rounded-full border border-gold/20"
+                      >
+                        {v}
+                      </span>
+                    ))}
+                  </div>
+                  <Link
+                    to="/contact"
+                    className="text-gold text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all"
+                  >
+                    Get Consultation <ChevronRight className="w-4 h-4" />
+                  </Link>
                 </div>
               </motion.div>
             ))}

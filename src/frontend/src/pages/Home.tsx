@@ -52,15 +52,15 @@ const stats = [
 ];
 
 const countries = [
-  { flag: "🇨🇦", name: "Canada" },
-  { flag: "🇬🇧", name: "UK" },
-  { flag: "🇮🇪", name: "Ireland" },
-  { flag: "🇩🇪", name: "Germany" },
-  { flag: "🇺🇸", name: "USA" },
-  { flag: "🇦🇺", name: "Australia" },
-  { flag: "🇦🇪", name: "UAE" },
-  { flag: "🇸🇦", name: "Saudi Arabia" },
-  { flag: "🇶🇦", name: "Qatar" },
+  { code: "ca", name: "Canada" },
+  { code: "gb", name: "UK" },
+  { code: "ie", name: "Ireland" },
+  { code: "de", name: "Germany" },
+  { code: "us", name: "USA" },
+  { code: "au", name: "Australia" },
+  { code: "ae", name: "UAE" },
+  { code: "sa", name: "Saudi Arabia" },
+  { code: "qa", name: "Qatar" },
 ];
 
 const testimonials = [
@@ -238,7 +238,11 @@ export default function Home() {
                 key={c.name}
                 className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5 shadow-xs border border-border hover:border-gold hover:shadow-md transition-all duration-200"
               >
-                <span className="text-2xl">{c.flag}</span>
+                <img
+                  src={`https://flagcdn.com/w40/${c.code}.png`}
+                  alt={c.name}
+                  className="w-7 h-5 object-cover rounded-sm"
+                />
                 <span className="font-medium text-navy text-sm">{c.name}</span>
               </Link>
             ))}
