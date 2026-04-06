@@ -18,7 +18,7 @@ export default function Footer() {
               <img
                 src="/assets/uploads/chatgpt_image_mar_18_2026_03_26_41_pm-019d2e82-7349-7377-ac4e-7ab9541f2992-2.png"
                 alt="WorldGate Global Logo"
-                className="h-12 w-12 object-contain"
+                className="h-14 w-14 object-contain"
               />
               <div className="flex flex-col leading-tight">
                 <span className="font-display font-bold text-lg">
